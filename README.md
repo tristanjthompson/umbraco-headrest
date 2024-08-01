@@ -25,7 +25,7 @@ In order to configure HeadRest you will first of all need to create an Umbraco c
         }
     }
 
-	public void Terminate() { }
+    public void Terminate() { }
 ````
 
 From within the `Compose` method, you can then configure your endpoint(s) via the `ConfigureEndpoint` method on a new instance of the HeadRest service:
@@ -50,7 +50,7 @@ This will create an API endpoint at the path `/`, and will be anchored to the fi
 ### Advanced Configuration
 For a more advanced implementation, the following configuration shows all the supported options.
 ````csharp 
-    _headRest.ConfigureEndpoint("/api/", "/root//nodeTypeAlias[1]", new HeadRestOptions {
+    new HeadRest().ConfigureEndpoint("/api/", "/root//nodeTypeAlias[1]", new HeadRestOptions {
         Mode = HeadRestEndpointMode.Dedicated,
         ControllerType = typeof(HeadRestController),
         Mapper = ctx => AutoMapper.Map(ctx.Content, ctx.ContentType, ctx.ViewModelType),
