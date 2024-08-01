@@ -39,7 +39,7 @@ namespace Our.Umbraco.HeadRest.Web.Mvc
 
             if (Data != null)
             {
-                using (StreamWriter sw = new StreamWriter(response.Body, new UTF8Encoding(encoderShouldEmitUTF8Identifier: false)))
+                using (StreamWriter sw = new StreamWriter(response.Body, new UTF8Encoding(false)))
                 using (JsonTextWriter writer = new JsonTextWriter(sw) { Formatting = Formatting })
                 {
                     var serializer = JsonSerializer.Create(SerializerSettings);
